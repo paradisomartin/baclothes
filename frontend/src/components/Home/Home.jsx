@@ -1,9 +1,21 @@
+import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import products from '../../products';
 import Product from '../Product/Product';
+import axios from 'axios';
 
 export default function Home(){
-    
+    const [products, setProducts] = useState([]);
+
+    useEffect(()=>{
+        const fetchProducts = async()=>{
+            const { data } = await axios.get('/api/products')
+
+            setProducts(data)
+        }
+
+        fetchProducts()
+    }, [])
+
     return(
         <Container>
             <Row className='my-2 pt-4 justify-content-center'>
