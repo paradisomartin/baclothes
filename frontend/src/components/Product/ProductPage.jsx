@@ -15,7 +15,7 @@ export default function ProductPage({ match }){
         
         fetchProduct();
 
-    }, []);
+    }, [ match ]);
 
     return(
         <Container>
