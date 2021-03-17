@@ -1,19 +1,16 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Rating from '../Rating/Rating.jsx';
+import {Link} from 'react-router-dom';
 
 export default function Product({data}){
 
     return(
         <Card className='my-2 p-2 rounded'>
             <Card.Img variant="top" src={data.image} />
-            <Card.Body style={{height: '23rem'}}>
+            <Card.Body style={{height: '14rem'}}>
 
-                <Card.Title>{data.name}</Card.Title>
-                
-                <Card.Text>
-                    {data.description}
-                </Card.Text>
+                <Card.Title style={{height: '2rem'}}> <Link style={{color: 'black'}} to={`/product/${data._id}`}>{data.name}</Link> </Card.Title>
 
                 <Card.Text as='div' className='pt-3'>
                     <Rating value={data.rating} text={`${data.numReviews} reviews`} />
